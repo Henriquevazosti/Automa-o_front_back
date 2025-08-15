@@ -1,0 +1,47 @@
+// Obrjetivo desse projeto e testar as minha habilidades como QA valindando os cenarios de Front end e Back end. Usando a lingugem de JavaScript com PlayWright.
+
+
+// // Meu objetivo inicial é montar uma arquitetura muito bem estruturada ultilizando as boas praticas de programação // 
+
+//         Quero que tenhamos uma arquitetura baseada em PageObjects, Module.
+
+//         URL_BASE: https://front.serverest.dev/cadastrarusuarios
+        
+
+
+        // Dependencias do projeto
+
+        // npm install --save-dev playwright
+        // npx playwright install
+
+
+
+
+        import { test, expect } from "@playwright/test";
+
+test.describe('cadastra usuario',() => {
+    test('deve cadastrar o usuario', async ({page}) => {
+        await page.goto('https://front.serverest.dev/login');
+        await page.getByTestId('cadastrar').click();
+        await page.fill('#nome', 'vaz teste');
+        await page.fill('#email', 'vaz.teste@example.com');
+        await page.fill('#password', 'senha123');
+        await page.getByTestId('entrar').click();
+    })
+
+    test('deve realizar login', async ({page}) => {
+        await page.goto('https://front.serverest.dev/login');
+        await page.fill('#email', 'vaz.teste@example.com');
+        await page.fill('#password', 'senha123');
+        await page.getByTestId('entrar').click();
+    })
+
+    test('deve cadastrar produto', async ({page}) => {
+        await page.goto('https://front.serverest.dev/produtos');
+        await page.getByTestId('cadastrar').click();
+        await page.fill('#nome', 'Produto Teste');
+        await page.fill('#preco', '100');
+        await page.fill('#descricao', 'Descrição do Produto Teste');
+        await page.getByTestId('salvar').click();
+    })
+})
