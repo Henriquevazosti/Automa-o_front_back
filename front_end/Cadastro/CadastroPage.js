@@ -6,6 +6,7 @@ export class CadastroPage {
         this.DIGITE_SENHA = '#password';
         this.CADASTRAR = '[data-testid="cadastrar"]';
         this.MENSAGEM_ERRO_EMAIL = '#email:invalid, input[type="email"]:invalid';
+        this.MENSAGEM_ERRO_SENHA = 'span:has-text("Password é obrigatório")';
     }
 
     async clicarCadastrar() {

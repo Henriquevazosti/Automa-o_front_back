@@ -17,6 +17,6 @@ test.describe('Cadastrar usuario', () => {
 
     test('Não informar a senha e testar cadastrar o usuario', async ({ page }) => {
         await iniciarPaginaLogin(page);
-        await iniciarCadastroSemSenha(page, 'Teste VAZ', 'teste@example.com');
+        await iniciarCadastroSemSenha(page, 'Teste', 'teste@example.com');
     });
 });

@@ -35,11 +35,12 @@ export async function iniciarCadastroSemSenha(page, nome, email) {
     await cadastroPage.clicarCadastrar();
     await expect(page).toHaveURL(`${URL_BASE}/cadastrarusuarios`);
     await cadastroPage.preencherCadastroSemSenha(nome, email);
+    await expect(page.getByText('Password é obrigatório')).toBeVisible();
     
-    // Tenta submeter o formulário para triggar a validação
-    await cadastroPage.clicarCadastrar();
+    // // Tenta submeter o formulário para triggar a validação
+    // await cadastroPage.clicarCadastrar();
     
-    // Captura e valida a mensagem de erro da senha
-    const validationMessage = await cadastroPage.getSenhaValidationMessage();
-    expect(validationMessage).toContain('obrigatório');
+    // // Captura e valida a mensagem de erro da senha
+    // const validationMessage = await cadastroPage.getSenhaValidationMessage();
+    // expect(validationMessage).toContain('Password é obrigatório');
 }
